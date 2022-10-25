@@ -7,7 +7,7 @@ const toDoItems = [];
 // agregar tu nombre al final del texto actual. Ej: 'Aplicación creada por Franco'
 // Tu código acá:
 const createdBy = document.querySelector("#createdBy");
-createdBy.innerHTML = createdBy.innerHTML + " Máximo Guzmán";
+createdBy.innerHTML += " Máximo Guzmán";
 
 
 // Crear una clase denominada 'ToDo' cuyo constructor debe recibir un único parámetro del tipo string
