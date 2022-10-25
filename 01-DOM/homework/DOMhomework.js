@@ -1,12 +1,13 @@
 // Crear un array vacío llamado 'toDoItems'
 // Tu codigo acá:
-
+const toDoItems = [];
 
 // En la página 'index.html' hay un elemento span cuyo texto es 'Aplicación creada por:'.
 // Usando querySelector seleccionar dicho span por su id ('createdBy') y luego usando innerHTML
 // agregar tu nombre al final del texto actual. Ej: 'Aplicación creada por Franco'
 // Tu código acá:
-
+const createdBy = document.querySelector("#createdBy");
+createdBy.innerHTML = createdBy.innerHTML + " Máximo Guzmán";
 
 
 // Crear una clase denominada 'ToDo' cuyo constructor debe recibir un único parámetro del tipo string
@@ -16,10 +17,12 @@
 // 2) 'complete'    : debe setearse en false
 // Ayuda: usar 'this' en el constructor
 
-function ToDo () {
+function ToDo (description) {
   // Tu código acá:
-
+  this.description = description;
+  this.complete = false;
 }
+
 
 
 // Agregar un método denominado 'completeToDo' al prototipo de la clase ToDo
@@ -27,6 +30,9 @@ function ToDo () {
 // Debe setear el atributo 'complete' del ToDo en true
 
 // Tu código acá:
+ToDo.prototype.completeToDo = function () {
+  this.complete = true;
+}
 
 
 
@@ -50,7 +56,22 @@ function ToDo () {
 
 function buildToDo(todo, index) {
   // Tu código acá:
+  const toDoShell = document.createElement("div");
+  toDoShell.classList.add("toDoShell"); //classList funciona mejor que className.
 
+  const toDoText = document.createElement("span");
+  toDoText.innerHTML = todo.description;
+  toDoText.setAttribute("id", index); //Funciona. Tener cuidado con las partes.
+
+  toDoText.addEventListener("click", completeToDo); //Ej. 3 de completeToDo.
+
+  if (todo.complete) {
+    toDoText.classList.add("completeText");
+  }
+
+  toDoShell.appendChild(toDoText); //Agregas un hijo.
+
+  return toDoShell;
 }
 
 // La función 'buildToDos' debe crear un array de objetos toDo y devolverlo
@@ -59,8 +80,12 @@ function buildToDo(todo, index) {
 // Devolver el nuevo array
 
 function buildToDos(toDos) {
-  // Tu código acá:
+  // Tu código acá.
+  const todo = toDos.map(function(todo, index){ //Pasamos una cb, que recibe un todo (Objeto que nos pide) y un index numerico.
+    return buildToDo(todo, index); //Llamamos el build, para iterar su array (Creando uno nuevo para retornar), y el index para ir pasando por los arrays.
+  })
 
+  return todo;
 }
 
 
@@ -75,6 +100,13 @@ function buildToDos(toDos) {
 
 function displayToDos() {
   // Tu código acá:
+  const toDoContainer = document.querySelector("#toDoContainer");
+  toDoContainer.innerHTML = "";
+
+  const todos = buildToDos(toDoItems);
+  todos.forEach(e => {
+    toDoContainer.appendChild(e); //Guardamos como hijo de toDoContainer.
+  });
 
 }
 
@@ -90,6 +122,15 @@ function displayToDos() {
 
 function addToDo() {
   // Tu código acá:
+  const toDoInput = document.querySelector("#toDoInput"); //Lo marcamos para poder utilizarlo (Esto no es realmente necesario, pero el profe lo hizo)
+
+  const todo = new ToDo(toDoInput.value); //Devolvemos el valor del input.
+  
+  toDoItems.push(todo);
+
+  toDoInput.value = ""; //Borramos el valor del input.
+
+  displayToDos();
 
 }
 
@@ -99,6 +140,8 @@ function addToDo() {
 //   2) Agregarle un 'click' event listener, pasándole la función 'addToDo' como callback
 
 // Tu código acá:
+const button = document.querySelector("#addButton");
+button.addEventListener("click", addToDo);
 
 
 // La función completeToDo se va a ejecutar cuando queramos completar un todo
@@ -115,8 +158,11 @@ function addToDo() {
 
 function completeToDo(event) {
   // DESCOMENTAR LA SIGUIENTE LINEA
-  // const index = event.target.id;
+  const index = event.target.id;
   // Tu código acá:
+  toDoItems.at(index).completeToDo(); //at recibe un num entero y devuelve el elemento (De un arr) en dicha posición. En caso de que index sea negativo, contará al reves (Siendo array[0] el primer valor, array[ultimo] el siguiente, array[anteultimo] el siguiente y así).
+
+  displayToDos();
 
 }
 
@@ -137,6 +183,7 @@ function completeToDo(event) {
 
 
 // Acá debes insertar la llamada a 'displayToDos'
+displayToDos();
 
 
 // ---------------------------- NO CAMBIES NADA DE ACÁ PARA ABAJO ----------------------------- //
