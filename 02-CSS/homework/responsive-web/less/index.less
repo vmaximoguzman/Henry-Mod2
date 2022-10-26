@@ -1,1 +1,74 @@
 // Importar los archivos less acá:
+@import "./variables.less";
+@import "./mixins.less";
+@import "./reset.less";
+@import "./global.less";
+@import "./navigation.less";
+@import "./footer.less";
+@import "./home-page.less";
+
+@media screen and (max-width: @phone) {
+    .container {
+        nav {
+            ul {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                li {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    .home {
+        .intro {
+            div {
+                display: flex;
+                justify-content: center;
+                img {
+                    padding: 0px 10px;
+                }
+            }
+        }
+
+        .music-images {
+            display: flex;
+            justify-content: center;
+            .auricular{
+                width: 100%;
+                height: auto;
+            }
+
+            .tecnologia {
+                display: none;
+            }
+
+            .ondas {
+                display: none;
+            }
+        }
+
+        .actual {
+            flex-direction: column-reverse;
+            margin: 0px 0px 10px 0px;
+            padding: 0px 10px;
+
+            .actual-img {
+                width: 100%;
+                height: auto;
+                margin: 0px;
+            }
+
+            .actual-text {
+                margin-top: 15px;
+                
+                width: 100%;
+
+                .btn {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
