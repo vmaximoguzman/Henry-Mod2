@@ -5,7 +5,7 @@ const studentName = "Máximo";
 const techSkills = ["Html", "Css", "JavaScript", "React", "Redux"];
 const alerts = { m1: "Aprobado", m2: "En curso" };
 
-export default function Bienvenido(alerts) {
+export default function Bienvenido() {
   // el código de tu componente acá
   return (
     <div>
@@ -17,7 +17,7 @@ export default function Bienvenido(alerts) {
         ))}
       </ul>
 
-      <Botones props={alerts} />
+      <Botones alerts={alerts} />
     </div>
   );
 }
