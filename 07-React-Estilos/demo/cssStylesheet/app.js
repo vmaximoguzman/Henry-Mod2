@@ -1,9 +1,15 @@
-import React from 'react';
-import { render } from 'react-dom';
-import Producto from './src/components/Product.jsx';
-import OtroComponente from './src/components/OtroComponente.js';
+import React from "react";
+import { render } from "react-dom";
+import Product from "./src/components/Product.jsx";
+import Product2 from "./src/components/Product2.jsx";
 
-render(<div>
-    <Producto title="Prueba" price={400}/>
-    <OtroComponente title="Otro" price={133}/>
-    </div>, document.getElementById('app'));
+const App = () => {
+  return (
+    <>
+      <Product title="Producto 1" price="$100" />
+      <Product2 title="Producto 2" price="$500" />
+    </>
+  );
+};
+
+render(<App />, document.getElementById("app"));
