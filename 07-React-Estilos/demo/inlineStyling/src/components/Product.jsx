@@ -1,19 +1,17 @@
-import React from 'react';
+import React from "react";
 
 const divStyle = {
-  margin: '40px',
-  border: '5px solid pink',
-};
-const pStyle = {
-  fontSize: '15px',
-  textAlign: 'center',
+  backgroundColor: "red", //No se le puede poner un guión al nombre de la propiedad de un obj (Cambiamos por camelCase).
+  color: "white",
+  width: "100px",
+  borderRadius: "5px",
 };
 
 function Product(props) {
   return (
     <div style={divStyle}>
       <h3>{props.title}</h3>
-      <p style={pStyle}>{props.price}</p>
+      <p>{props.price}</p>
     </div>
   );
 }
