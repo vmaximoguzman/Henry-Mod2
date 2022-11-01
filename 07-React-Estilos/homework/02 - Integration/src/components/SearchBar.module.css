@@ -1,0 +1,20 @@
+.busca {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.agregar {
+  font-size: 25px;
+  border-radius: 5px;
+}
+
+.boton {
+  padding: 7px;
+  color: white;
+  background-color: rgb(107, 212, 107);
+  border-radius: 0px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
