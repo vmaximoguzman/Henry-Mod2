@@ -1,0 +1,10 @@
+.fondo {
+  background-image: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/andromeda-galaxy-imaged-from-12-500-feet-in-royalty-free-image-1653570371.jpg");
+  text-align: center;
+  height: 100vh;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+}
