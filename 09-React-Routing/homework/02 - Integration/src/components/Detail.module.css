@@ -1,0 +1,35 @@
+.divTot {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.divTxt {
+  display: flex;
+  flex-direction: column;
+}
+
+.txtH1 {
+  color: white;
+  font-size: 50px;
+
+  text-shadow: 0.1em 0.1em rgba(255, 255, 255, 0.397);
+}
+
+.txt {
+  color: white;
+  font-size: 23px;
+
+  text-shadow: 0.1em 0.1em rgba(255, 255, 255, 0.397);
+}
+
+.divImg {
+  width: 35%;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+  box-shadow: 7px 7px 8px rgba(255, 255, 255, 0.322);
+  border-radius: 10px;
+}
