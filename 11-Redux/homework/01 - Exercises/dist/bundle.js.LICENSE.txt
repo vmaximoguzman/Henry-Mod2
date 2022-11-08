@@ -1,0 +1,1 @@
+//!Obtiene el estado, la variable se queda con el resultado del contador.
