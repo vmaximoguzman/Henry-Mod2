@@ -6,10 +6,18 @@ class Counter extends Component {
   // Extra Credit
   incrementIfOdd = () => {
     //Implementar una función de incremento que sólo aumenta si el valor del contador es impar
+    const num = store.getState().count;
+
+    if (num % 2 !== 0) {
+      store.dispatch(increment());
+    }
   };
   // Extra Credit
   incrementAsync = () => {
     //  Implementar una función de incremento que aumenta después de esperar un segundo
+    setTimeout(() => {
+      store.dispatch(increment());
+    }, 1000);
   };
 
   render() {
@@ -21,6 +29,7 @@ class Counter extends Component {
         <button
           onClick={() => {
             /* Completar */
+            store.dispatch(increment());
           }}
         >
           + {/* Incremeta */}
@@ -28,17 +37,18 @@ class Counter extends Component {
         <button
           onClick={() => {
             /* Completar */
+            store.dispatch(decrement());
           }}
         >
           - {/* Decrementa */}
         </button>
         {/* Si quieres hacer los extra credit puede descomentar las líneas de abajo */}
-        {/* <button onClick={this.incrementIfOdd}>
-                    incrementa si es impar
-                </button>
-                <button onClick={this.incrementAsync}>
-                    Incrementa después de un segundo
-                </button>  */}
+        <button onClick={this.incrementIfOdd}>
+          Incrementa si el número es impar
+        </button>
+        <button onClick={this.incrementAsync}>
+          Incrementa después de un segundo
+        </button>
       </p>
     );
   }

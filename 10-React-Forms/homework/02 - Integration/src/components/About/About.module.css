@@ -1,0 +1,31 @@
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 3em;
+}
+
+.tpDiv {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  margin-left: 30px;
+}
+
+.tit {
+  color: white;
+  font-size: 4em;
+}
+
+.par {
+  color: white;
+  font-size: 1.2em;
+}
+
+.img {
+  width: 75%;
+  height: auto;
+}
